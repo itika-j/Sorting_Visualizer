@@ -4,7 +4,7 @@ import random
 from colors import *
 
 # Importing algorithms 
-from algorithms.bubbleSort import bubble_sort
+from algorithms.bubbleSort import *
 from algorithms.selectionSort import selection_sort
 from algorithms.insertionSort import insertion_sort
 from algorithms.mergeSort import merge_sort
@@ -26,6 +26,7 @@ speed_name = StringVar()
 data_length = StringVar()
 data_type = StringVar()
 data_size = 0
+passS = 0
 data = []
 algo_list = ['Bubble Sort', 'Insertion Sort', 'Selection Sort', 'Merge Sort', 'Quick Sort', 'Heap Sort', 'Counting Sort']
 speed_list = [20, 30, 40, 50, 100, 200, 300, 400, 500, 1000]
@@ -55,7 +56,8 @@ def drawData(data, colorArray):
 # Randomly generate array
 def generate():
     global data
-
+    global passS
+    passS = 0
     data = []
     
     n = int(data_menu.get())
@@ -72,6 +74,8 @@ def set_speed():
 
 def sort():
     global data
+    global passS
+    passS = 0
     timeTick = set_speed()
     
     if algo_menu.get() == 'Bubble Sort':
@@ -88,6 +92,17 @@ def sort():
         heap_sort(data, drawData, timeTick)
     else:
         counting_sort(data, drawData, timeTick)
+        
+        
+def nextPass():
+    global data
+    global passS
+    
+    passS+=1
+    
+    if algo_menu.get() == 'Bubble Sort':
+        bubble_pass(data, drawData, passS)
+
 
 
 ### User interface ###
@@ -123,6 +138,9 @@ canvas = Canvas(window, width=800, height=400, bg=WHITE)
 canvas.grid(row=1, column=0, padx=10, pady=5)
 
 b1 = Button(UI_frame, text="Sort", command=sort, bg=LIGHT_GRAY)
+b1.grid(row=4, column=2, padx=5, pady=5)
+
+b1 = Button(UI_frame, text="Pass", command=nextPass, bg=LIGHT_GRAY)
 b1.grid(row=4, column=1, padx=5, pady=5)
 
 b3 = Button(UI_frame, text="Generate Array", command=generate, bg=LIGHT_GRAY)
