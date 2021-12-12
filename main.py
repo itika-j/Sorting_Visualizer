@@ -18,7 +18,7 @@ from algorithms.countingSort import counting_sort
 window = Tk()
 window.title("Sorting Algorithms Visualization")
 window.maxsize(1000, 700)
-window.config(bg = WHITE)
+window.config(bg = BLACK)
 
 
 algorithm_name = StringVar()
@@ -65,7 +65,7 @@ def generate():
         random_value = random.randint(1, 150)
         data.append(random_value)
 
-    drawData(data, [BLUE for x in range(len(data))])
+    drawData(data, [RED for x in range(len(data))])
 
 
 def set_speed():
@@ -106,45 +106,64 @@ def nextPass():
 
 
 ### User interface ###
-UI_frame = Frame(window, width= 900, height=300, bg=WHITE)
+UI_frame = Frame(window, width= 100, height=300,bg = DARK_GRAY)
 UI_frame.grid(row=0, column=0, padx=10, pady=5)
 
-l1 = Label(UI_frame, text="Algorithm: ", bg=WHITE)
+l1 = Label(UI_frame, text="Algorithm: ", fg = WHITE, bg = DARK_GRAY)
 l1.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 algo_menu = ttk.Combobox(UI_frame, textvariable=algorithm_name, values=algo_list)
 algo_menu.grid(row=0, column=1, padx=5, pady=5)
 algo_menu.current(0)
 
-l2 = Label(UI_frame, text="Sorting Speed: ", bg=WHITE)
+l2 = Label(UI_frame, text="Sorting Speed: ",fg = WHITE , bg = DARK_GRAY)
 l2.grid(row=1, column=0, padx=10, pady=5, sticky=W)
 speed_menu = ttk.Combobox(UI_frame, textvariable=speed_name, values=speed_list)
 speed_menu.grid(row=1, column=1, padx=5, pady=5)
 speed_menu.current(0)
 
-l3 = Label(UI_frame, text="Data Type: ", bg=WHITE)
+'''l3 = Label(UI_frame, text="Data Type: ", fg = WHITE , bg = DARK_GRAY)
 l3.grid(row=2, column=0, padx=10, pady=5, sticky=W)
 type_menu = ttk.Combobox(UI_frame, textvariable=data_type, values=type_list)
 type_menu.grid(row=2, column=1, padx=5, pady=5)
-type_menu.current(0)
+type_menu.current(0)'''
 
-l4 = Label(UI_frame, text="Data Length: ", bg=WHITE)
-l4.grid(row=3, column=0, padx=10, pady=5, sticky=W)
+l4 = Label(UI_frame, text="Data Length: ", fg = WHITE , bg = DARK_GRAY)
+l4.grid(row=2, column=0, padx=10, pady=5, sticky=W)
 data_menu = ttk.Combobox(UI_frame, textvariable=data_length, values=length_list)
-data_menu.grid(row=3, column=1, padx=5, pady=5)
+data_menu.grid(row=2, column=1, padx=5, pady=5)
 data_menu.current(0)
 
 
-canvas = Canvas(window, width=800, height=400, bg=WHITE)
+canvas = Canvas(window, width=800, height=400, bg = DARK_GRAY)
 canvas.grid(row=1, column=0, padx=10, pady=5)
 
-b1 = Button(UI_frame, text="Sort", command=sort, bg=LIGHT_GRAY)
-b1.grid(row=4, column=2, padx=5, pady=5)
-
-b1 = Button(UI_frame, text="Pass", command=nextPass, bg=LIGHT_GRAY)
+b1 = Button(UI_frame, text="  Sort  ", command=sort, bg = LIGHT_GRAY)
 b1.grid(row=4, column=1, padx=5, pady=5)
 
-b3 = Button(UI_frame, text="Generate Array", command=generate, bg=LIGHT_GRAY)
-b3.grid(row=4, column=0, padx=5, pady=5)
+b1 = Button(UI_frame, text="  Pass  ", command=nextPass, bg=LIGHT_GRAY)
+b1.grid(row=4, column=0, padx=5, pady=5)
+
+b3 = Button(UI_frame, text="Generate", command=generate, bg=LIGHT_GRAY)
+b3.grid(row=3, column=0, columnspan=2 ,padx=10, pady=5)
 
 
+'''legend_frame = Frame(window, width= 800, height= 60,bg = PURPLE)
+legend_frame.grid(row=1, column=0, columnspan=2, padx=10, pady=5)
+
+cl1 = Label(legend_frame, text="  ", bg = RED)
+cl1.grid(row=0, column=0, padx=10, pady=5, sticky=W)
+c1 = Label(legend_frame, text= 'Not sorted', fg = WHITE, bg = DARK_GRAY)
+c1.grid(row=0, column=1, padx=10, pady=5, sticky=W)
+
+cl2 = Label(legend_frame, text="  ", bg = BLUE)
+cl2.grid(row=0, column=2, padx=10, pady=5, sticky=W)
+c2 = Label(legend_frame, text= 'sorted', fg = WHITE, bg = DARK_GRAY)
+c2.grid(row=0, column=3, padx=10, pady=5, sticky=W)
+
+cl3 = Label(legend_frame, text="  ", bg = YELLOW)
+cl3.grid(row=0, column=3, padx=10, pady=5, sticky=W)
+c3 = Label(legend_frame, text= 'compare', fg = WHITE, bg = DARK_GRAY)
+c3.grid(row=0, column=4, padx=10, pady=5, sticky=W)
+
+'''
 window.mainloop()
