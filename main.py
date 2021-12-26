@@ -28,9 +28,9 @@ data_type = StringVar()
 data_size = 0
 passS = 0
 data = []
-algo_list = ['Bubble Sort', 'Insertion Sort', 'Selection Sort', 'Merge Sort', 'Quick Sort', 'Heap Sort', 'Counting Sort']
+algo_list = ['Insertion Sort', 'Selection Sort', 'Bubble Sort', 'Merge Sort', 'Quick Sort', 'Heap Sort', 'Counting Sort']
 speed_list = [20, 30, 40, 50, 100, 200, 300, 400, 500, 1000]
-length_list = [5,10,20,30,40,50,60,70,80,90,100]
+length_list = [10,20,30,40,50,60,70,80,90,100]
 type_list = ['random', 'input']
 
 # Drawing the numerical array as bars
@@ -122,7 +122,7 @@ speed_menu.grid(row=1, column=1, padx=5, pady=5)
 speed_menu.current(0)
 
 '''l3 = Label(UI_frame, text="Data Type: ", fg = WHITE , bg = DARK_GRAY)
-l3.grid(row=2, column=0, padx=10, pady=5, sticky=W)
+l3.grid(row=5, column=0, padx=10, pady=5, sticky=W)
 type_menu = ttk.Combobox(UI_frame, textvariable=data_type, values=type_list)
 type_menu.grid(row=2, column=1, padx=5, pady=5)
 type_menu.current(0)'''

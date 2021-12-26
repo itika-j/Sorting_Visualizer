@@ -9,13 +9,13 @@ def bubble_sort(data, drawData, timeTick):
         for j in range(size-i-1):
             drawData(data, [YELLOW if x == j or x == j+1 
                             else BLUE if x+sorted > size
-                                    else RED for x in range(len(data))] )
+                            else RED for x in range(len(data))] )
             time.sleep(timeTick)
             if data[j] > data[j+1]:
                 data[j], data[j+1] = data[j+1], data[j]
                 drawData(data, [PURPLE if x == j or x == j+1 
-                            else BLUE if x+sorted > size
-                                    else RED for x in range(len(data))] )
+                                else BLUE if x+sorted > size
+                                else RED for x in range(len(data))] )
                 time.sleep(timeTick)
         sorted+=1
         #drawData(data, [YELLOW if x == j or x == j+1 else BLUE for x in range(len(data))] )       

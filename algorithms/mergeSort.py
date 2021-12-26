@@ -5,6 +5,12 @@ def merge(data, start, mid, end, drawData, timeTick):
     p = start
     q = mid + 1
     tempArray = []
+    
+    '''
+    purple = left
+    yellow = mid
+    pink = right
+    '''
 
     for i in range(start, end+1):
         if p > mid:
@@ -33,7 +39,7 @@ def merge_sort(data, start, end, drawData, timeTick):
         merge(data, start, mid, end, drawData, timeTick)
 
         drawData(data, [PURPLE if x >= start and x < mid else YELLOW if x == mid 
-                        else DARK_BLUE if x > mid and x <=end else BLUE for x in range(len(data))])
+                        else RED if x > mid and x <=end else BLUE for x in range(len(data))])
         time.sleep(timeTick)
 
     drawData(data, [BLUE for x in range(len(data))])

@@ -6,10 +6,20 @@ def insertion_sort(data, drawData, timeTick):
         temp = data[i]
         k = i
         while k > 0 and temp < data[k-1]:
+            drawData(data, [PURPLE if x == k else
+                            BLUE if x<k else
+                            YELLOW if x<i else
+                            YELLOW if x == i else 
+                            RED for x in range(len(data))])
+            time.sleep(timeTick)
             data[k] = data[k-1]
             k -= 1
         data[k] = temp
-        drawData(data, [YELLOW if x == k or x == i else BLUE for x in range(len(data))])
+        drawData(data, [PURPLE if x == k else
+                            BLUE if x<k else
+                            YELLOW if x<i else
+                            YELLOW if x == i else 
+                            RED for x in range(len(data))])
         time.sleep(timeTick)
         
     drawData(data, [BLUE for x in range(len(data))])
